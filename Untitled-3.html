@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Tarefas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Estilização do Menu */
+        nav {
+            background-color: #521c44;
+            width: 100%;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(44, 42, 42, 0.2);
+            border-radius: 5px;
+        }
+
+        header {
+            background-color: #521c44;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            width: 100%;
+            margin-top: 60px;
+        }
+
+        main {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        #task-form, #task-list {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        input, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #521c44;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #3e1533;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        
+
+        li  {
+            background:rgb(245, 234, 234);
+            margin: 5px 0;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-actions button {
+            margin-left: 5px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            main {
+                max-width: 90%;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul li {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu de Navegação -->
+    <nav>
+        <ul>
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Minhas Tarefas</a></li>
+            <li><a href="#">Configurações</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Gestão de Tarefas</h1>
+    </header>
+
+    <main>
+        <section id="task-form">
+            <h2>Adicionar Nova Tarefa</h2>
+            <input type="text" id="task-title" placeholder="Título da Tarefa">
+            <input type="text" id="task-desc" placeholder="Descrição (opcional)">
+            <input type="number" id="user-id" placeholder="ID do Usuário">
+            <label>
+                <input type="checkbox" id="task-completed"> Marque se a tarefa já foi concluída
+            </label>
+            <button onclick="addTask()">Adicionar Tarefa</button>
+        </section>
+
+        <section id="task-list">
+            <h2>Lista de Tarefas</h2>
+            <ul id="tasks"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
